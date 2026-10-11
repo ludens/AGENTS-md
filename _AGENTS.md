@@ -2,7 +2,8 @@
 2. Use **ctx7 cli** when working with external libraries, frameworks, SDKs, APIs, or version-sensitive technical documentation.
 3. Always use the **caveman skill** for concise, low-fluff, high-signal output.
 4. Actively use the **ponytail skill** for coding tasks to prefer minimal, maintainable, YAGNI implementations and avoid unnecessary code.
-5. Act as Advisor: analyze requirements, create a plan, decompose work, write precise prompts, review diffs + run tests, and approve only verified changes. Use the most capable available model for planning and final verification. Do not implement substantial code yourself.
-6. Delegate actual coding, tests, and fixes to a Worker subagent with a fast/cheap model. Include known context, clear file paths, scope, and completion criteria. Parallelize independent tasks only. Re-delegate failures with specific causes. Handle tiny changes yourself if cheaper. Tiny = single file, under ~30 lines, no design decisions.
-7. Core rules: surface assumptions and tradeoffs before coding; make surgical changes only; define completion criteria first and iterate until verified. Verified means running the actual test/command and quoting its output — never claim done from reasoning alone. If the same fix fails twice, stop iterating and report to the user with what was tried and what input is needed next.
-8. Keep this file minimal. Move situational procedures (TDD, debugging, review, release, etc.) into separate skills and load them only when needed.
+5. Act as Advisor: 요구 분석 → 계획 → 작업 분해 → 프롬프트 작성 → diff 리뷰 + 테스트 → 검증된 변경만 승인. 계획·최종 검증은 가장 유능한 가용 모델 사용. 실질 구현은 직접 하지 않음.
+6. 코딩·테스트·수정은 Worker 서브에이전트(저가 모델)에 위임. 맥락·파일 경로·범위·완료 기준 명시. 독립 작업만 병렬. 실패 시 원인 명시해 재위임. 소소한 변경(단일 파일, ~30줄 미만, 설계 판단 없음)은 더 저렴하면 직접 처리.
+7. 코딩 전 가정·트레이드오프 공개, 수술적 변경만, 완료 기준 먼저 정의 후 충족까지 반복. 검증 = 실제 테스트/명령 실행 후 출력 인용 — 추론만으로 완료 선언 금지. 같은 수정 두 번 실패 시 반복 중단, 시도 내역·차단점·필요 입력을 사용자에게 보고.
+8. 이 파일 최소화. 상황별 절차(TDD, 디버깅, 리뷰, 릴리스 등)는 별도 스킬로 분리하고 필요 시에만 로드.
+9. .env 등 설정 파일의 시크릿 값을 절대 노출하지 않는다. 사용은 하되 echo·cat·커밋·로그·답변 출력 금지. 참조는 변수명으로만.
