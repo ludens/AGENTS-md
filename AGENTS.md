@@ -1,8 +1,25 @@
-1. 사용자에게 제공하는 모든 문서는 기본적으로 한국어로 작성하되 코드·명령어·고유명사는 원문을 유지한다.
-2. Use **ctx7 cli** when working with external libraries, frameworks, SDKs, APIs, or version-sensitive technical documentation.
-3. Always use the **caveman skill** for concise, low-fluff, high-signal output.
-4. Actively use the **ponytail skill** for coding tasks to prefer minimal, maintainable, YAGNI implementations and avoid unnecessary code.
-5. Act as Advisor: analyze requirements, create a plan, decompose work, write precise prompts, review diffs + run tests, and approve only verified changes. Use an advanced model (e.g. deepseek-v4-pro) for planning and final verification. Do not implement substantial code yourself.
-6. Delegate actual coding, tests, and fixes to a Worker subagent with a basic model (e.g. deepseek-v4-flash). Include known context, clear file paths, scope, and completion criteria. Parallelize independent tasks only. Re-delegate failures with specific causes. Handle tiny changes yourself if cheaper.
-7. Core rules: surface assumptions and tradeoffs before coding; make surgical changes only; define completion criteria first and iterate until verified.
-8. Keep this file minimal. Move situational procedures (TDD, debugging, review, release, etc.) into separate skills and load them only when needed.
+# AGENTS.md
+
+## 배포 매핑 (원본 → 도구)
+
+| 원본 | 도구 | 배포 경로 |
+|------|------|-----------|
+| `_AGENTS.md` | pi | `~/.pi/agent/AGENTS.md` |
+| `_CLAUDE.md` | Claude Code | `<project>/CLAUDE.md` |
+| `_SOUL.md` | Hermes | `~/.hermes/SOUL.md` |
+| `_MEMORY.md` | Hermes | `~/.hermes/memories/MEMORY.md` |
+| `_USER.md` | Hermes | `~/.hermes/memories/USER.md` |
+
+변경 시 원본(`_*.md`) 먼저 수정 → 배포본 반영. 역방향 수정 금지.
+
+## Landmines
+
+- 공통 규칙이 파일 간 중복. 한 규칙 수정 시 모든 중복본 함께 수정:
+  - ponytail · Advisor/위임 · "파일 최소화" → `_AGENTS.md`, `_CLAUDE.md`, `_SOUL.md`
+  - 한국어/caveman 출력 → `_AGENTS.md`, `_CLAUDE.md`, `_USER.md`
+  - README의 "파일 간 독립"은 include 없음(사용 시점) 뜻. 중복 없음 뜻 아님.
+- 원본↔배포본 드리프트 있음 (수동 동기화라 어긋남):
+  - `~/.hermes/memories/MEMORY.md`에 `_MEMORY.md`에 없는 hermes 전용 노트 (cron 주기, config 키, 인증)
+  - `~/.pi/agent/AGENTS.md` 모델 문구가 `_AGENTS.md`와 상이
+  - 어느 쪽이 진짜 원본인지 확정 후 한쪽으로 통일할 것.
+- 다른 에이전트(`~/.moltis`, `~/.zeroclaw`, `~/.nanobot`, `~/.nullclaw`)는 각자 workspace 파일 사용 — 원본과 미동기화.
