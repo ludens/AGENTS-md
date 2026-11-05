@@ -2,13 +2,7 @@
 
 ## 배포 매핑 (원본 → 도구)
 
-| 원본 | 도구 | 배포 경로 |
-|------|------|-----------|
-| `_AGENTS.md` | pi | `~/.pi/agent/AGENTS.md` |
-| `_CLAUDE.md` | Claude Code | `<project>/CLAUDE.md` |
-| `_SOUL.md` | Hermes | `~/.hermes/SOUL.md` |
-| `_MEMORY.md` | Hermes | `~/.hermes/memories/MEMORY.md` |
-| `_USER.md` | Hermes | `~/.hermes/memories/USER.md` |
+[README.md](README.md)의 표 참조.
 
 변경 시 원본(`_*.md`) 먼저 수정 → 배포본 반영. 역방향 수정 금지.
 
