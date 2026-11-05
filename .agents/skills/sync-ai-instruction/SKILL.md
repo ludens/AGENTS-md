@@ -1,6 +1,6 @@
 ---
 name: sync-ai-instruction
-description: Use when deploying or syncing AGENTS-md source instructions (instructions/core.md and tool deltas) to global instruction files for pi, opencode, Claude Code, or Hermes, or when asked to update, merge, or distribute global agent rules.
+description: Use when deploying or syncing source instructions (instructions/core.md and tool deltas) to global instruction files for pi, opencode, Claude Code, or Hermes, or when asked to update, merge, or distribute global agent rules.
 ---
 
 # Instruction Sync
