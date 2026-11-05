@@ -1,19 +1,21 @@
 # AGENTS.md
 
-## 배포 매핑 (원본 → 도구)
+이 repo는 여러 AI 도구에 넣을 전역 지침의 원본 저장소다. 애플리케이션 코드는 없다.
 
-[README.md](README.md)의 표 참조.
+## 편집 규칙
 
-변경 시 원본(`_*.md`) 먼저 수정 → 배포본 반영. 역방향 수정 금지.
+- 공통 규칙은 `instructions/core.md`만 고친다. 도구별 차이는 `instructions/<tool>.md` 델타에 둔다.
+- 같은 규칙을 두 파일에 복사하지 않는다. 중복이 보이면 core로 올린다.
+- 이 파일은 이 repo에서 작업하는 에이전트용이다. 배포 대상이 아니다.
+- 배포표는 `README.md`가 유일한 소스다. 배포는 `.agents/skills/sync-ai-instruction` 스킬을 따른다.
 
-## Landmines
+## 배포 시 보존
 
-- 공통 규칙이 파일 간 중복. 한 규칙 수정 시 모든 중복본 함께 수정:
-  - ponytail · Advisor/위임 · "파일 최소화" → `_AGENTS.md`, `_CLAUDE.md`, `_SOUL.md`
-  - 한국어/caveman 출력 → `_AGENTS.md`, `_CLAUDE.md`, `_USER.md`
-  - README의 "파일 간 독립"은 include 없음(사용 시점) 뜻. 중복 없음 뜻 아님.
-- 원본↔배포본 드리프트 있음 (수동 동기화라 어긋남):
-  - `~/.hermes/memories/MEMORY.md`에 `_MEMORY.md`에 없는 hermes 전용 노트 (cron 주기, config 키, 인증)
-  - `~/.pi/agent/AGENTS.md` 모델 문구가 `_AGENTS.md`와 상이
-  - 어느 쪽이 진짜 원본인지 확정 후 한쪽으로 통일할 것.
-- 다른 에이전트(`~/.moltis`, `~/.zeroclaw`, `~/.nanobot`, `~/.nullclaw`)는 각자 workspace 파일 사용 — 원본과 미동기화.
+- `~/.config/opencode/AGENTS.md`의 `<!-- caveman-begin -->` 블록
+- `~/.hermes/memories/MEMORY.md`의 Hermes 전용 노트
+- `~/.pi/agent/AGENTS.md`의 모델 문구
+
+## 검증
+
+- 문서 변경도 실제 파일 존재와 링크를 확인하고 출력을 인용한다.
+- 배포 후에는 `diff` 결과를 인용한다.
