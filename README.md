@@ -1,4 +1,4 @@
-# my-ai-instructions
+# ai-instructions
 
 여러 AI 도구에 넣을 전역 작업 지침의 원본 저장소.
 
