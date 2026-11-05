@@ -12,7 +12,7 @@ README.md                      구조·배포표
 instructions/
   core.md                      모든 도구 공통 규칙
   hermes-user.md               Hermes 사용자 선호 (한국어, caveman)
-.agents/skills/sync-ai-instruction/SKILL.md   배포 절차
+.agents/skills/sync-ai-instruction/SKILL.md   배포 판단 규칙 (매핑·보존은 이 문서)
 ```
 
 ## 배포표
