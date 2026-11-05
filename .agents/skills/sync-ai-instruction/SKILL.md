@@ -45,7 +45,7 @@ for p in <표의 경로들>; do [ -e "$p" ] && echo "installed: $p" || echo "abs
 선택된 도구마다 `core.md`와 표에 적힌 델타를 이어 붙여 기대 내용을 만든다. 델타가 없으면 `core.md`만 쓴다.
 
 ```sh
-cat instructions/core.md instructions/claude.md > <임시 파일>
+cat instructions/core.md <델타...> > <임시 파일>
 diff <임시 파일> "$dst"
 ```
 
@@ -94,6 +94,7 @@ preserved:<path> (tool-specific blocks untouched)
 ## 하지 말 것
 
 - `cp`, `curl -o`로 통째 덮어쓰기. 도구 전용 블록이 사라진다.
+- symlink로 연결. 도구 전용 블록을 보존할 수 없고 도구별 조합도 만들 수 없다.
 - 중복이라는 이유로 조용히 삭제.
 - 배포본을 원본처럼 수정.
 - 기존 스킬 파일 편집으로 중복을 없애기.

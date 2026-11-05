@@ -11,8 +11,6 @@ AGENTS.md                      이 repo 작업용 메타 지침 (배포 대상 �
 README.md                      구조·배포표
 instructions/
   core.md                      모든 도구 공통 규칙
-  claude.md                    Claude Code 델타 (모델명, Verifier 분리)
-  hermes-memory.md             Hermes 기억 노트 (작업 경로, Slack 매핑)
   hermes-user.md               Hermes 사용자 선호 (한국어, caveman)
 .agents/skills/sync-ai-instruction/SKILL.md   배포 절차
 ```
@@ -24,15 +22,16 @@ instructions/
 | `core.md` | pi | `~/.pi/agent/AGENTS.md` |
 | `core.md` | opencode | `~/.config/opencode/AGENTS.md` |
 | `core.md` | Hermes | `~/.hermes/SOUL.md` |
-| `core.md` + `claude.md` | Claude Code | `~/.claude/CLAUDE.md` 또는 `<project>/CLAUDE.md` |
-| `hermes-memory.md` | Hermes | `~/.hermes/memories/MEMORY.md` |
+| `core.md` | Claude Code | `~/.claude/CLAUDE.md` 또는 `<project>/CLAUDE.md` |
 | `hermes-user.md` | Hermes | `~/.hermes/memories/USER.md` |
 
-pi·opencode·Hermes SOUL은 델타가 없다. `core.md`를 그대로 쓴다.
+모든 도구가 델타 없이 `core.md`를 쓴다. `hermes-user.md`만 단독으로 `USER.md`에 배포한다. `MEMORY.md`는 원본이 없다. 대상에 있는 내용을 보존한다.
 
 ## 배포
 
 배포본은 원본을 합친 결과다. `core.md`와 해당 델타를 이어 붙여 대상에 반영한다.
+
+symlink를 쓰지 않는다. 대상마다 도구 전용 블록이 있고, 보존해야 하기 때문이다.
 
 1. 대상 파일과 합친 내용을 `diff`한다.
 2. 다른 부분을 반영한다. 대상에만 있는 도구 전용 블록은 보존한다.
