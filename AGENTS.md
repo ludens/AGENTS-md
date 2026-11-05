@@ -12,7 +12,6 @@
 ## 배포 시 보존
 
 - `~/.config/opencode/AGENTS.md`의 `<!-- caveman-begin -->` 블록
-- `~/.hermes/memories/MEMORY.md`의 Hermes 전용 노트
 - `~/.pi/agent/AGENTS.md`의 모델 문구
 
 ## 검증

@@ -25,7 +25,7 @@ instructions/
 | `core.md` | Claude Code | `~/.claude/CLAUDE.md` 또는 `<project>/CLAUDE.md` |
 | `hermes-user.md` | Hermes | `~/.hermes/memories/USER.md` |
 
-모든 도구가 델타 없이 `core.md`를 쓴다. `hermes-user.md`만 단독으로 `USER.md`에 배포한다. `MEMORY.md`는 원본이 없다. 대상에 있는 내용을 보존한다.
+모든 도구가 델타 없이 `core.md`를 쓴다. `hermes-user.md`만 단독으로 `USER.md`에 배포한다.
 
 ## 배포
 
