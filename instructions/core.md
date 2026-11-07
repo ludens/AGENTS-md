@@ -45,3 +45,4 @@
 - GitHub·GitLab·Bitbucket 등 원격 저장소가 연결된 repo에서 코드 수정이 필요한 작업은 먼저 이슈를 등록하고 이슈 번호로 브랜치를 만든다. 사소한 수정도 마찬가지다.
 - 코드 수정 작업은 전용 worktree에서 진행한다. `git worktree add ../<repo>-<이슈번호> -b <branch>`로 시작하고, 완료 후 `git worktree remove <path>`로 정리한다. 이슈 번호가 없으면 작업 이름을 쓴다.
 - 계획·진행 상황·완료 결과·실패 내역을 이슈 댓글로 기록하고 수시로 갱신한다.
+- GitHub·GitLab 이슈·PR(MR)은 type 라벨 하나를 붙인다. 세트는 `bug`(#d73a4a)·`enhancement`(#a2eeef)·`docs`(#0075ca)·`chore`(#FBCA04). 상태 라벨은 쓰지 않는다.
